@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Para Maria 💌</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --rose-deep: #8b3a4a;
+      --rose-soft: #c97b8a;
+      --rose-pale: #f5e8eb;
+      --cream: #faf6f2;
+      --gold: #c9a962;
+      --ink: #2d2320;
+      --shadow: rgba(139, 58, 74, 0.2);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--rose-pale);
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem 6rem;
+      position: relative;
+      background: 
+        radial-gradient(ellipse 90% 60% at 50% 30%, rgba(201, 123, 138, 0.22), transparent 55%),
+        linear-gradient(180deg, rgba(245, 232, 235, 0.6) 0%, rgba(250, 238, 242, 0.9) 100%),
+        var(--rose-pale);
+    }
+
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      font-weight: 600;
+      color: var(--rose-deep);
+      text-align: center;
+      margin-bottom: 0.35rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero .sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 5.5vw, 2.75rem);
+      font-weight: 600;
+      color: var(--rose-deep);
+      opacity: 0.95;
+      margin-bottom: 3rem;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    .question {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.4rem, 3.5vw, 1.85rem);
+      font-weight: 600;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+
+    /* Photos scattered around the screen, floating */
+    .photo-wrap {
+      position: absolute;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 16px 40px var(--shadow);
+      animation: float 14s ease-in-out infinite;
+    }
+
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-wrap.p1 { left: 18%;  top: 18%;  width: clamp(160px, 28vw, 320px); height: clamp(160px, 28vw, 320px); animation-delay: 0s;      animation-duration: 16s; }
+    .photo-wrap.p2 { right: 18%; top: 18%;  width: clamp(150px, 26vw, 300px);  height: clamp(150px, 26vw, 300px); animation-delay: -3s;   animation-duration: 18s; }
+    .photo-wrap.p3 { left: 18%;  bottom: 18%; width: clamp(140px, 24vw, 280px); height: clamp(140px, 24vw, 280px); animation-delay: -6s;   animation-duration: 15s; }
+    .photo-wrap.p4 { right: 18%; bottom: 18%; width: clamp(155px, 27vw, 310px); height: clamp(155px, 27vw, 310px); animation-delay: -9s;   animation-duration: 17s; }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(-1deg); }
+      25%      { transform: translate(8px, -12px) rotate(1deg); }
+      50%      { transform: translate(-6px, 6px) rotate(0deg); }
+      75%      { transform: translate(-10px, -6px) rotate(1deg); }
+    }
+
+    /* Floating hearts */
+    .hearts {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: clamp(18px, 3.5vw, 32px);
+      opacity: 0.35;
+      color: var(--rose-soft);
+      animation: heartFloat 12s ease-in-out infinite;
+    }
+
+    .heart.h2 { font-size: clamp(14px, 2.5vw, 24px); opacity: 0.25; }
+    .heart.h3 { font-size: clamp(22px, 4vw, 40px); opacity: 0.2; }
+
+    @keyframes heartFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25%      { transform: translate(15px, -20px) scale(1.05); }
+      50%      { transform: translate(-10px, 10px) scale(0.98); }
+      75%      { transform: translate(-18px, -8px) scale(1.02); }
+    }
+
+    .heart:nth-child(1)  { left: 12%;  top: 22%;  animation-delay: 0s;    animation-duration: 14s; }
+    .heart:nth-child(2)  { left: 88%;  top: 15%;  animation-delay: -2s;   animation-duration: 16s; }
+    .heart:nth-child(3)  { left: 75%;  top: 45%;  animation-delay: -4s;   animation-duration: 11s; }
+    .heart:nth-child(4)  { left: 8%;   top: 55%;  animation-delay: -1s;   animation-duration: 13s; }
+    .heart:nth-child(5)  { left: 92%;  top: 72%;  animation-delay: -5s;   animation-duration: 15s; }
+    .heart:nth-child(6)  { left: 25%;  top: 8%;   animation-delay: -3s;   animation-duration: 12s; }
+    .heart:nth-child(7)  { left: 60%;  top: 28%;  animation-delay: -0.5s; animation-duration: 17s; }
+    .heart:nth-child(8)  { left: 35%;  top: 78%;  animation-delay: -6s;   animation-duration: 10s; }
+    .heart:nth-child(9)  { left: 50%;  top: 35%;  animation-delay: -2.5s; animation-duration: 14s; }
+    .heart:nth-child(10) { left: 18%;  top: 85%;  animation-delay: -4.5s; animation-duration: 13s; }
+    .heart:nth-child(11) { left: 82%;  top: 52%;  animation-delay: -1.5s; animation-duration: 11s; }
+    .heart:nth-child(12) { left: 42%;  top: 12%;  animation-delay: -3.5s; animation-duration: 15s; }
+
+    .center-block {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      min-height: 120px;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .btn {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      padding: 0.75rem 1.75rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      z-index: 2;
+      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.08);
+    }
+
+    .btn-yes {
+      background: linear-gradient(180deg, #9d4a5a 0%, var(--rose-deep) 50%, #7a3240 100%);
+      color: var(--cream);
+      box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15), 0 6px 20px var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-yes:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 0 rgba(0, 0, 0, 0.12), 0 8px 28px var(--shadow);
+    }
+
+    .btn-no {
+      background: linear-gradient(180deg, #fff 0%, var(--rose-pale) 100%);
+      color: var(--rose-deep);
+      border: 1px solid var(--rose-soft);
+      position: absolute;
+      left: calc(50% + 58px);
+      top: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 2px 0 rgba(201, 123, 138, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+    }
+
+    .btn-no.runaway {
+      position: absolute;
+      transition: left 0.35s ease-out, top 0.35s ease-out, transform 0.2s ease;
+    }
+
+    /* Plan section */
+    .plan {
+      min-height: 100vh;
+      padding: 6rem 2rem 6rem;
+      background: 
+        linear-gradient(180deg, transparent 0%, rgba(201, 123, 138, 0.06) 30%, rgba(201, 169, 98, 0.08) 100%),
+        var(--rose-pale);
+    }
+
+    .plan-inner {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .plan h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 600;
+      color: var(--rose-deep);
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .waypoints {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .waypoint {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.25rem;
+      padding: 1.25rem 1.5rem;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(45, 35, 32, 0.06);
+      border: 1px solid rgba(201, 123, 138, 0.2);
+    }
+
+    .waypoint-emoji {
+      font-size: 2.5rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+
+    .waypoint-text strong {
+      display: block;
+      font-size: 1.15rem;
+      color: var(--ink);
+      margin-bottom: 0.25rem;
+    }
+
+    .waypoint-text span {
+      font-size: 0.95rem;
+      color: var(--ink);
+      opacity: 0.8;
+    }
+
+    .waypoint-arrow {
+      text-align: center;
+      color: var(--gold);
+      font-size: 1.5rem;
+      margin: -0.25rem 0;
+    }
+
+    .plan-note {
+      text-align: center;
+      margin-top: 2.5rem;
+      font-size: 0.95rem;
+      color: var(--ink);
+      opacity: 0.85;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" aria-hidden="true">
+    <span class="heart">♥</span>
+    <span class="heart h2">♥</span>
+    <span class="heart h3">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart h2">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart h3">♥</span>
+    <span class="heart h2">♥</span>
+    <span class="heart">♥</span>
+    <span class="heart h3">♥</span>
+    <span class="heart h2">♥</span>
+    <span class="heart">♥</span>
+  </div>
+  <section class="hero" id="hero">
+    <div class="photo-wrap p1"><img src="static/IMG_7205.HEIC" alt="" /></div>
+    <div class="photo-wrap p2"><img src="static/IMG_7360.HEIC" alt="" /></div>
+    <div class="photo-wrap p3"><img src="static/IMG_7467.heic" alt="" /></div>
+    <div class="photo-wrap p4"><img src="static/IMG_7518.HEIC" alt="" /></div>
+
+    <div class="center-block">
+      <h1>Maria Garcia Costa</h1>
+      <p class="sub">Will you be my Valentine?</p>
+      <p class="question">Say you'll spend the day with me?</p>
+      <div class="buttons" id="button-container">
+        <button type="button" class="btn btn-yes" id="btn-yes">Yes!</button>
+        <button type="button" class="btn btn-no" id="btn-no">No</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="plan" id="plan">
+    <div class="plan-inner">
+      <h2>Our plan</h2>
+      <div class="waypoints">
+        <div class="waypoint">
+          <span class="waypoint-emoji" aria-hidden="true">🧖‍♀️</span>
+          <div class="waypoint-text">
+            <strong>HAMMAM SPA</strong>
+            <span>Relax and unwind together</span>
+          </div>
+        </div>
+        <div class="waypoint-arrow">↓</div>
+        <div class="waypoint">
+          <span class="waypoint-emoji" aria-hidden="true">🥩</span>
+          <div class="waypoint-text">
+            <strong>Carne asada</strong>
+            <span>Dinner after the spa</span>
+          </div>
+        </div>
+      </div>
+      <p class="plan-note">Can't wait to spend it with you 💕</p>
+    </div>
+  </section>
+
+    <script>
+    (function () {
+      var btnNo = document.getElementById('btn-no');
+      var btnYes = document.getElementById('btn-yes');
+      var container = document.getElementById('button-container');
+      var planSection = document.getElementById('plan');
+
+      if (!btnNo || !container) return;
+
+      btnNo.classList.add('runaway');
+      var offsetX = 58;
+      var offsetY = 0;
+      var step = 140;
+      var limit = 9999;
+
+      function getLimit() {
+        var rect = container.getBoundingClientRect();
+        var cx = rect.left + rect.width / 2;
+        var cy = rect.top + rect.height / 2;
+        return Math.max(
+          Math.abs(window.innerWidth - cx),
+          Math.abs(cx),
+          Math.abs(window.innerHeight - cy),
+          Math.abs(cy)
+        ) + 80;
+      }
+
+      function moveNoButton() {
+        var maxOff = getLimit();
+        offsetX += (Math.random() - 0.5) * 2 * step;
+        offsetY += (Math.random() - 0.5) * 2 * step;
+        offsetX = Math.max(-maxOff, Math.min(maxOff, offsetX));
+        offsetY = Math.max(-maxOff, Math.min(maxOff, offsetY));
+        btnNo.style.left = 'calc(50% + ' + offsetX + 'px)';
+        btnNo.style.top = 'calc(50% + ' + offsetY + 'px)';
+        btnNo.style.transform = 'translate(-50%, -50%)';
+      }
+
+      btnNo.addEventListener('click', function (e) {
+        e.preventDefault();
+        moveNoButton();
+      });
+
+      btnNo.addEventListener('mouseenter', function () {
+        moveNoButton();
+      });
+
+      if (btnYes && planSection) {
+        btnYes.addEventListener('click', function () {
+          planSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
